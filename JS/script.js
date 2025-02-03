@@ -5,6 +5,7 @@ const modal = document.querySelector(".modal");
 const title = document.querySelector(".title");
 const btnYes = document.getElementById("btn-yes");
 const btnNo = document.getElementById("btn-no");
+const textDownload = document.getElementById("text-click-image");
 
 const imageClickDownload = (qrCode, showValue) => {
   setTimeout(() => {
@@ -52,7 +53,12 @@ btnGenerater.addEventListener("click", () => {
     modal.style.display = "none";
 
     let generateQrcode = `https://quickchart.io/qr?text=${text.value}`;
+    area_qrcode.style.display = "flex";
     area_qrcode.src = generateQrcode;
+
+    textDownload.style.display = "flex";
+    textDownload.innerHTML = "* Clique na imagem para baixar";
+
     qrCode = generateQrcode;
   }, 5000);
 
