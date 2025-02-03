@@ -124,7 +124,7 @@ body {
 
 .buttons #btn-yes,
 .buttons #btn-no {
-  height: 2.5rem;
+  /* height: 2.5rem; */
   width: 10rem;
   font-size: 1em;
   border-radius: 0.5rem;
