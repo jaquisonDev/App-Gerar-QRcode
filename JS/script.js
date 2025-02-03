@@ -20,13 +20,13 @@ btnGenerater.addEventListener("click", async () => {
   dialog.innerHTML = "Gerou";
   dialog.showModal();
 
-  // await fetch(generateQrcode)
-  //   .then((res) => res.blob())
-  //   .then((blob) => {
-  //     const file = window.URL.createObjectURL(blob);
-  //     const a = document.createElement("a");
-  //     a.href = file;
-  //     a.download = "qrcode.png";
-  //     a.click();
-  //   });
+   await fetch(generateQrcode)
+     .then((res) => res.blob())
+     .then((blob) => {
+       const file = window.URL.createObjectURL(blob);
+       const a = document.createElement("a");
+       a.href = file;
+       a.download = "qrcode.png";
+       a.click();
+     });
 });
