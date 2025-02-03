@@ -1,8 +1,12 @@
 const btnGenerater = document.getElementById("btn-generater");
 const area_qrcode = document.getElementById("qrcode");
 const text = document.getElementById("text");
+const modal = document.querySelector(".modal");
+const title = document.querySelector(".title");
+const btnYes = document.getElementById("btn-yes");
+const btnNo = document.getElementById("btn-no");
 
-btnGenerater.addEventListener("click", async () => {
+btnGenerater.addEventListener("click", () => {
   if (!text.value) {
     btnGenerater.focus();
     btnGenerater.innerHTML = "⚠️ Você deve digitar algum texto ⚠️";
@@ -10,19 +14,44 @@ btnGenerater.addEventListener("click", async () => {
     return;
   }
 
-  alert("QRCode gerado com sucesso!");
+  let qrCode = "";
 
-  let generateQrcode = `https://quickchart.io/qr?text=${text.value}`;
+  modal.style.display = "flex";
+  title.innerHTML = "Gerando QRCode...";
+  btnYes.style.display = "none";
+  btnNo.style.display = "none";
 
-  area_qrcode.src = generateQrcode;
+  setTimeout(() => {
+    modal.style.display = "none";
 
-  await fetch(generateQrcode)
-    .then((res) => res.blob())
-    .then((blob) => {
-      const file = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = file;
-      a.download = "qrcode.png";
-      a.click();
+    let generateQrcode = `https://quickchart.io/qr?text=${text.value}`;
+    area_qrcode.src = generateQrcode;
+
+    qrCode = generateQrcode;
+  }, 5000);
+
+  setTimeout(() => {
+    modal.style.display = "flex";
+    title.innerHTML = "Você deseja fazer download?";
+    btnYes.style.display = "flex";
+    btnNo.style.display = "flex";
+
+    btnYes.addEventListener("click", async () => {
+      await fetch(qrCode)
+        .then((res) => res.blob())
+        .then((blob) => {
+          const file = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = file;
+          a.download = "qrcode.png";
+          a.click();
+        });
+
+      modal.style.display = "none";
     });
+
+    btnNo.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }, 6000);
 });
