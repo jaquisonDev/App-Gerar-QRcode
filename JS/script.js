@@ -1,7 +1,6 @@
 const btnGenerater = document.getElementById("btn-generater");
 const area_qrcode = document.getElementById("qrcode");
 const text = document.getElementById("text");
-const dialog = document.getElementById("dialog");
 
 btnGenerater.addEventListener("click", async () => {
   if (!text.value) {
@@ -17,16 +16,13 @@ btnGenerater.addEventListener("click", async () => {
 
   area_qrcode.src = generateQrcode;
 
-  dialog.innerHTML = "Gerou";
-  dialog.showModal();
-
-   await fetch(generateQrcode)
-     .then((res) => res.blob())
-     .then((blob) => {
-       const file = window.URL.createObjectURL(blob);
-       const a = document.createElement("a");
-       a.href = file;
-       a.download = "qrcode.png";
-       a.click();
-     });
+  await fetch(generateQrcode)
+    .then((res) => res.blob())
+    .then((blob) => {
+      const file = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = file;
+      a.download = "qrcode.png";
+      a.click();
+    });
 });
