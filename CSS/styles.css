@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Playwrite+IN:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.fugaz-one-regular {
+  font-family: "Fugaz One", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(to top, #0f0c29 10%, #302b63, #24243e 70%);
+}
+
+.container {
+  height: 100%;
+  gap: 2rem;
+}
+
+.container,
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  gap: 1rem;
+}
+
+.form input {
+  height: 2.5rem;
+  width: 30rem;
+  font-size: 1em;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 0.5px solid #add8e6;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  caret-color: #98fb98;
+}
+
+.form input::placeholder {
+  color: #add8e6;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.form #btn-generater {
+  height: 2.5rem;
+  width: 30rem;
+  font-size: 1em;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 0;
+  outline: none;
+  color: #fff;
+  background-color: #0f0c29;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.form #btn-generater:hover {
+  background-color: #1b1839;
+}
+
+#dialog {
+  width: 30rem;
+  height: 20rem;
+}
