@@ -24,10 +24,12 @@ body {
   justify-content: center;
 
   background-image: linear-gradient(to top, #0f0c29 10%, #302b63, #24243e 70%);
+  background-repeat: no-repeat;
 }
 
 .container {
   height: 100%;
+  width: 100%;
   gap: 2rem;
 }
 
@@ -40,6 +42,7 @@ body {
 }
 
 .form {
+  width: 100%;
   gap: 1rem;
 }
 
@@ -80,6 +83,10 @@ body {
   background-color: #1b1839;
 }
 
+.form #btn-download {
+  display: none;
+}
+
 .modal {
   position: absolute;
   top: 0;
@@ -97,7 +104,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 300px;
   width: 50%;
   background-color: #fff;
   border-radius: 8px;
@@ -134,4 +141,55 @@ body {
 .buttons #btn-yes:hover,
 .buttons #btn-no:hover {
   background-color: #1b1839;
+}
+
+@media (min-width: 250px) and (max-width: 600px) {
+  .container {
+    gap: 0;
+  }
+
+  .container .title {
+    font-size: 1.8em;
+    text-wrap: break-word;
+    margin-bottom: 15px;
+  }
+
+  .container #qrcode {
+    margin-top: 20px;
+    width: 60%;
+    height: 30%;
+  }
+
+  .form {
+    width: 90%;
+  }
+
+  .form input {
+    width: 100%;
+  }
+  .form #btn-generater {
+    width: 100%;
+  }
+
+  .buttons #btn-yes,
+  .buttons #btn-no {
+    width: 7rem;
+  }
+
+  .modal .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25rem;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .modal .content .title {
+    text-align: center;
+  }
 }
