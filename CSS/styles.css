@@ -96,6 +96,7 @@ body {
   background-color: #0f0c29;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-size: 1.3em;
 }
 
 .form #btn-generater:hover {
@@ -212,14 +213,8 @@ body {
   }
 
   .modal .box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 25rem;
     width: 90%;
-    background-color: #fff;
-    border-radius: 8px;
-    border: 0;
     padding-left: 10px;
     padding-right: 10px;
   }
